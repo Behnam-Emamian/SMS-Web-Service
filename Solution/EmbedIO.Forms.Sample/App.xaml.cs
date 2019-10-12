@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using System.Net;
-using System.Net.Sockets;
-using Unosquare.Labs.EmbedIO;
-using Unosquare.Labs.EmbedIO.Modules;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Reflection;
+
+using Unosquare.Labs.EmbedIO;
+using Unosquare.Labs.EmbedIO.Modules;
+using EmbedIO.Forms.Sample.Controllers;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace EmbedIO.Forms.Sample
@@ -16,14 +16,13 @@ namespace EmbedIO.Forms.Sample
         {
             InitializeComponent();
 
-            // Server must be started, before WebView is initialized,
-            // because we have no reload implemented in this sample.
             Task.Factory.StartNew(async () =>
             {
                 using (var server = new WebServer("http://*:8080"))
                 {
-                    Assembly assembly = typeof(App).Assembly;
-                    server.RegisterModule(new ResourceFilesModule(assembly, "EmbedIO.Forms.Sample.html"));
+                    server.RegisterModule(new CorsModule());
+                    server.WithWebApiController<HealthCheckController>(true);
+                    server.WithWebApiController<SMSController>(true);
 
                     await server.RunAsync();
                 }
