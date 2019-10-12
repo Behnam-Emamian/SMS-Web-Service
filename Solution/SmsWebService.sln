@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsWebService.Android", "EmbedIO.Forms.Sample.Android\SmsWebService.Android.csproj", "{2DF46817-4AEA-4A47-B72C-919C3D040C9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsWebService.Android", "SmsWebService.Android\SmsWebService.Android.csproj", "{2DF46817-4AEA-4A47-B72C-919C3D040C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsWebService.iOS", "EmbedIO.Forms.Sample.iOS\SmsWebService.iOS.csproj", "{28CE622A-038E-42EE-9DB1-F983E7FAF4D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsWebService.iOS", "SmsWebService.iOS\SmsWebService.iOS.csproj", "{28CE622A-038E-42EE-9DB1-F983E7FAF4D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsWebService", "EmbedIO.Forms.Sample\SmsWebService.csproj", "{61EBA2E8-68C7-4355-8258-E339F947B002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsWebService", "SmsWebService\SmsWebService.csproj", "{61EBA2E8-68C7-4355-8258-E339F947B002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
