@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace EmbedIO.Forms.Sample.iOS
+namespace SmsWebService.iOS
 {
     public class Application
     {

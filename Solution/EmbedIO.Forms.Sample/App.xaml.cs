@@ -5,10 +5,10 @@ using Xamarin.Forms.Xaml;
 
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
-using EmbedIO.Forms.Sample.Controllers;
+using SmsWebService.Controllers;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace EmbedIO.Forms.Sample
+namespace SmsWebService
 {
     public partial class App : Application
     {

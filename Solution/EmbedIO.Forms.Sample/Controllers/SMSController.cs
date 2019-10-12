@@ -6,7 +6,7 @@ using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Constants;
 using Unosquare.Labs.EmbedIO.Modules;
 
-namespace EmbedIO.Forms.Sample.Controllers
+namespace SmsWebService.Controllers
 {
     public class SMSController : WebApiController
     {

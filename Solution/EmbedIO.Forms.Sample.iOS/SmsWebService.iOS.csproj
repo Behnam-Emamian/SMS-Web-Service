@@ -152,9 +152,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\EmbedIO.Forms.Sample\EmbedIO.Forms.Sample.csproj">
+    <ProjectReference Include="..\EmbedIO.Forms.Sample\SmsWebService.csproj">
       <Project>{61EBA2E8-68C7-4355-8258-E339F947B002}</Project>
-      <Name>EmbedIO.Forms.Sample</Name>
+      <Name>SmsWebService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

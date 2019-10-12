@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace EmbedIO.Forms.Sample
+namespace SmsWebService
 {
     public partial class MainPage : ContentPage
     {
