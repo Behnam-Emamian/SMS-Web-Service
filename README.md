@@ -12,4 +12,4 @@ Swagger UI 3, https://swagger.io/tools/swagger-ui/
 
 http://[Phone IP Address]:8767
 
-![SmsWebService](https://raw.githubusercontent.comBehnam-Emamian/SMS-Web-Service/master/Images/SwaggerUI.png)
+![SmsWebService](https://raw.githubusercontent.com/Behnam-Emamian/SMS-Web-Service/master/Images/SwaggerUI.png)
