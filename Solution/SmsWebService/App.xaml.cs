@@ -21,7 +21,7 @@ namespace SmsWebService
                 using (var server = new WebServer("http://*:8080"))
                 {
                     server.RegisterModule(new CorsModule());
-                    server.WithWebApiController<HealthCheckController>(true);
+                    server.WithWebApiController<HealthController>(true);
                     server.WithWebApiController<SMSController>(true);
 
                     await server.RunAsync();

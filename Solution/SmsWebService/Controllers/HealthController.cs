@@ -5,9 +5,9 @@ using Unosquare.Labs.EmbedIO.Modules;
 
 namespace SmsWebService.Controllers
 {
-    public class HealthCheckController : WebApiController
+    public class HealthController : WebApiController
     {
-        public HealthCheckController(IHttpContext context)
+        public HealthController(IHttpContext context)
         : base(context)
         {
         }
@@ -19,6 +19,5 @@ namespace SmsWebService.Controllers
         {
             return await Ok("Healthy",contentType: "text/plain");
         }
-
     }
 }
