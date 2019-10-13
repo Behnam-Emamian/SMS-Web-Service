@@ -11,6 +11,7 @@ using Android.Telephony;
 using Android.Views;
 using Android.Widget;
 using SmsWebService.Interfaces;
+using SmsWebService.Models;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SmsWebService.Droid.Services.SmsService))]
@@ -18,9 +19,9 @@ namespace SmsWebService.Droid.Services
 {
     class SmsService : ISmsService
     {
-        public void Send(string recipient, string message)
+        public void Send(SMS sms)
         {
-            SmsManager.Default.SendTextMessage(recipient, null, message, null, null);
+            SmsManager.Default.SendTextMessage(sms.Recipient, null, sms.Message, null, null);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace SmsWebService
 
             Task.Factory.StartNew(async () =>
             {
-                using (var server = new WebServer("http://*:8080"))
+                using (var server = new WebServer("http://*:"+ Settings.PortNumber))
                 {
                     server.RegisterModule(new LocalSessionModule());
 

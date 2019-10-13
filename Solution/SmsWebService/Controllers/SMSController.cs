@@ -3,6 +3,7 @@ using SmsWebService.Interfaces;
 using SmsWebService.Models;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Unosquare.Labs.EmbedIO;
@@ -23,18 +24,25 @@ namespace SmsWebService.Controllers
 
         public override void SetDefaultHeaders() => HttpContext.NoCache();
 
-        [WebApiHandler(HttpVerbs.Get, "/api/sms")]
+        [WebApiHandler(HttpVerbs.Post, "/api/sms")]
         public async Task<bool> SendSMS()
         {
-            //var sendSMSRequest = await HttpContext.ParseJsonAsync<SendSMSRequest>();
-            var sendSMSRequest = new SendSMSRequest{
-                Recipient = "",
-                Message = "Hello from Xamarin"
-            };
+            if (!HttpContext.HasRequestHeader("ApiKey"))
+                return await InternalServerError(new UnauthorizedAccessException("ApiKey is not provided!"), HttpStatusCode.Unauthorized);
 
-            DependencyService.Get<ISmsService>().Send(sendSMSRequest.Recipient, sendSMSRequest.Message);
+            if (HttpContext.RequestHeader("ApiKey")!=Settings.ApiKey)
+                return await InternalServerError(new UnauthorizedAccessException("ApiKey is not correct!"), HttpStatusCode.Unauthorized);
 
-            return await Ok("Message has been sent successfully.",contentType: "text/plain");
+            var sms = await HttpContext.ParseJsonAsync<SMS>();
+            if (string.IsNullOrEmpty(sms.Recipient))
+                return await InternalServerError(new ArgumentNullException("Recipient"), HttpStatusCode.BadRequest);
+
+            if (string.IsNullOrEmpty(sms.Message))
+                return await InternalServerError(new ArgumentNullException("Message"), HttpStatusCode.BadRequest);
+
+            //DependencyService.Get<ISmsService>().Send(sms);
+
+            return await Ok("{ \"Message\": \"SMS has been sent successfully.\" }");
         }
 
     }

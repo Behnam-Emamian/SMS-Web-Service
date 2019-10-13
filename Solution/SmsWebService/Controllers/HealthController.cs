@@ -14,7 +14,7 @@ namespace SmsWebService.Controllers
 
         public override void SetDefaultHeaders() => HttpContext.NoCache();
 
-        [WebApiHandler(HttpVerbs.Get, "/health")]
+        [WebApiHandler(HttpVerbs.Get, "/api/health")]
         public async Task<bool> HealthCheck()
         {
             return await Ok("Healthy",contentType: "text/plain");

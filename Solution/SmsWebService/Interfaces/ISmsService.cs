@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SmsWebService.Models;
 
 namespace SmsWebService.Interfaces
 {
     public interface ISmsService
     {
-        void Send(string recipient, string message);
+        void Send(SMS sms);
     }
 }

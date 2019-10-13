@@ -9,7 +9,13 @@ namespace SmsWebService
 
         public static int PortNumber
         {
-            get => AppSettings.GetValueOrDefault(nameof(PortNumber), 8080);
+            get => AppSettings.GetValueOrDefault(nameof(PortNumber), 8767);
+            set => AppSettings.AddOrUpdateValue(nameof(PortNumber), value);
+        }
+
+        public static string ApiKey
+        {
+            get => AppSettings.GetValueOrDefault(nameof(PortNumber), "SecureApiKey");
             set => AppSettings.AddOrUpdateValue(nameof(PortNumber), value);
         }
     }
