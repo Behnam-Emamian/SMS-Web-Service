@@ -1,0 +1,67 @@
+﻿openapi: 3.0.1
+info:
+  title: SMS Web Service
+  description: ''
+  contact:
+    email: ben@ictace.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  version: 1.0.0
+externalDocs:
+  description: Find out more about SMS Web Service
+  url: https://github.com/Behnam-Emamian/SMS-Web-Service
+servers:
+- url: /api
+tags:
+- name: SMS
+- name: Health Check
+paths:
+  /sms:
+    post:
+      tags:
+      - SMS
+      summary: Send a new SMS
+      operationId: sendSms
+      requestBody:
+        description: SMS object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMS'
+        required: true
+      responses:
+        200:
+          description: Send successfully.
+        400:
+          description: "Error: Bad Request"
+        401:
+          description: "Error: Unauthorized"
+      security:
+      - api_key: []
+  /health:
+    get:
+      tags:
+      - "Health Check"
+      summary: get health status
+      description: return the api status
+      operationId: getHealth
+      responses:
+        200:
+          description: Healthy
+components:
+  schemas:
+    SMS:
+      type: object
+      properties:
+        Recipient:
+          type: string
+        Message:
+          type: string
+      xml:
+        name: SMS
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: ApiKey
+      in: header

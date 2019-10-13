@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="swagger\favicon-16x16.png" />
+    <None Remove="swagger\favicon-32x32.png" />
+    <None Remove="swagger\index.html" />
+    <None Remove="swagger\oauth2-redirect.html" />
+    <None Remove="swagger\openapi.yaml" />
+    <None Remove="swagger\swagger-ui-bundle.js" />
+    <None Remove="swagger\swagger-ui-bundle.js.map" />
+    <None Remove="swagger\swagger-ui-standalone-preset.js" />
+    <None Remove="swagger\swagger-ui-standalone-preset.js.map" />
+    <None Remove="swagger\swagger-ui.css.map" />
+    <None Remove="swagger\swagger-ui.js" />
+    <None Remove="swagger\swagger-ui.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="swagger\favicon-16x16.png" />
+    <EmbeddedResource Include="swagger\favicon-32x32.png" />
+    <EmbeddedResource Include="swagger\index.html" />
+    <EmbeddedResource Include="swagger\oauth2-redirect.html" />
+    <EmbeddedResource Include="swagger\openapi.yaml" />
+    <EmbeddedResource Include="swagger\swagger-ui-bundle.js" />
+    <EmbeddedResource Include="swagger\swagger-ui-bundle.js.map" />
+    <EmbeddedResource Include="swagger\swagger-ui-standalone-preset.js" />
+    <EmbeddedResource Include="swagger\swagger-ui-standalone-preset.js.map" />
+    <EmbeddedResource Include="swagger\swagger-ui.css.map" />
+    <EmbeddedResource Include="swagger\swagger-ui.js" />
+    <EmbeddedResource Include="swagger\swagger-ui.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="EmbedIO" Version="2.9.2" />
+    <PackageReference Include="Xam.Plugin.WebView" Version="2.1.3" />
+  </ItemGroup>
+</Project>
