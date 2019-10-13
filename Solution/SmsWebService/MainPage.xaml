@@ -9,5 +9,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
+        <Label Text="App is running!!!" />
     </Grid>
 </ContentPage>

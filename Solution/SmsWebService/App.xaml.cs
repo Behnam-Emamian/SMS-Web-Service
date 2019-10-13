@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
 using SmsWebService.Controllers;
+using System.Reflection;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SmsWebService
@@ -20,9 +21,14 @@ namespace SmsWebService
             {
                 using (var server = new WebServer("http://*:8080"))
                 {
+                    server.RegisterModule(new LocalSessionModule());
+
                     server.RegisterModule(new CorsModule());
                     server.WithWebApiController<HealthController>(true);
                     server.WithWebApiController<SMSController>(true);
+
+                    Assembly assembly = typeof(App).Assembly;
+                    server.RegisterModule(new ResourceFilesModule(assembly, "SmsWebService.swagger"));
 
                     await server.RunAsync();
                 }

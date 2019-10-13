@@ -21,7 +21,6 @@ namespace SmsWebService.Droid.Services
         public void Send(string recipient, string message)
         {
             SmsManager.Default.SendTextMessage(recipient, null, message, null, null);
-
         }
     }
 }
