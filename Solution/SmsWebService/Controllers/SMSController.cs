@@ -40,7 +40,7 @@ namespace SmsWebService.Controllers
             if (string.IsNullOrEmpty(sms.Message))
                 return await InternalServerError(new ArgumentNullException("Message"), HttpStatusCode.BadRequest);
 
-            //DependencyService.Get<ISmsService>().Send(sms);
+            DependencyService.Get<ISmsService>().Send(sms);
 
             return await Ok("{ \"Message\": \"SMS has been sent successfully.\" }");
         }
