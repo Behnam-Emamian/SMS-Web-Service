@@ -19,7 +19,6 @@ namespace SmsWebService
         {
             InitializeComponent();
 
-
             Task.Factory.StartNew(async () =>
             {
                 using (var server = new WebServer("http://*:"+ Settings.PortNumber))

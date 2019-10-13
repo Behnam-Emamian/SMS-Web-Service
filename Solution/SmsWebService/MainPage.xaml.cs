@@ -17,9 +17,14 @@ namespace SmsWebService
                 if (smsPermissionStatus != PermissionStatus.Granted)
                 {
                     var smsPermissionRequestResult = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sms);
-                    if (smsPermissionRequestResult[Permission.Sms]!= PermissionStatus.Granted)
-                        if(await DisplayAlert("SMS Permission", "Without SMS permission, the app is not working", "Accept", "Cancel"))
-                            await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sms);
+                    if (smsPermissionRequestResult[Permission.Sms] != PermissionStatus.Granted)
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            if (await DisplayAlert("SMS Permission", "Without SMS permission, the app is not working!!!", "Accept", "Cancel"))
+                                await CrossPermissions.Current.RequestPermissionsAsync(Permission.Sms);
+                        });
+                    }
                 }
             });
         }
