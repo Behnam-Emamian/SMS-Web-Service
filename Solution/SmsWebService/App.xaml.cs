@@ -7,8 +7,6 @@ using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
 using SmsWebService.Controllers;
 using System.Reflection;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SmsWebService
@@ -21,7 +19,7 @@ namespace SmsWebService
 
             Task.Factory.StartNew(async () =>
             {
-                using (var server = new WebServer("http://*:"+ Settings.PortNumber))
+                using (var server = new WebServer(Settings.HostingUrl))
                 {
                     server.RegisterModule(new LocalSessionModule());
 
@@ -36,7 +34,9 @@ namespace SmsWebService
                 }
             });
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+
+            MainPage = new MainMasterDetailPage();
         }
     }
 }
