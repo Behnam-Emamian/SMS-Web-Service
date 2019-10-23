@@ -7,8 +7,6 @@ using Unosquare.Labs.EmbedIO;
 using Unosquare.Labs.EmbedIO.Modules;
 using SmsWebService.Controllers;
 using System.Reflection;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SmsWebService
