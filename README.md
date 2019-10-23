@@ -16,4 +16,7 @@ http://[Phone IP Address]:8767
 
 Default ApiKey is "SecureApiKey"
 
-![ApiKey](https://raw.githubusercontent.com/Behnam-Emamian/SMS-Web-Service/master/Images/Screenshots/Web/ApiKey.png)
+![ApiKey](./Images/Screenshots/Web/ApiKey.png)
+
+Release: 
+[![Build status](https://build.appcenter.ms/v0.1/apps/ecc542bb-21b9-49a3-b795-48c4363dcf9b/branches/master/badge)](https://appcenter.ms)
