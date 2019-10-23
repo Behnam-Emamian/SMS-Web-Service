@@ -1,13 +1,12 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace SmsWebService.Droid
 {
@@ -16,6 +15,8 @@ namespace SmsWebService.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCenter.Start("e5b2e941-ea77-451e-a6de-1fc8b41cbb16", typeof(Analytics), typeof(Crashes));
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -27,7 +28,7 @@ namespace SmsWebService.Droid
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
-            //Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
