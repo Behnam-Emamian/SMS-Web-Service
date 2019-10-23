@@ -19,7 +19,7 @@ namespace SmsWebService
 
             Task.Factory.StartNew(async () =>
             {
-                using (var server = new WebServer("http://*:"+ Settings.PortNumber))
+                using (var server = new WebServer(Settings.HostingUrl))
                 {
                     server.RegisterModule(new LocalSessionModule());
 
@@ -34,7 +34,9 @@ namespace SmsWebService
                 }
             });
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+
+            MainPage = new MainMasterDetailPage();
         }
     }
 }

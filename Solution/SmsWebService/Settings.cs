@@ -1,5 +1,7 @@
 ﻿using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System.Net;
+using System.Linq;
 
 namespace SmsWebService
 {
@@ -15,8 +17,18 @@ namespace SmsWebService
 
         public static string ApiKey
         {
-            get => AppSettings.GetValueOrDefault(nameof(PortNumber), "SecureApiKey");
-            set => AppSettings.AddOrUpdateValue(nameof(PortNumber), value);
+            get => AppSettings.GetValueOrDefault(nameof(ApiKey), "SecureApiKey");
+            set => AppSettings.AddOrUpdateValue(nameof(ApiKey), value);
+        }
+
+        public static string IpAddress
+        {
+            get => Dns.GetHostAddresses(Dns.GetHostName()).FirstOrDefault()?.ToString();
+        }
+
+        public static string HostingUrl
+        {
+            get => $"http://*:{PortNumber}";
         }
     }
 }
